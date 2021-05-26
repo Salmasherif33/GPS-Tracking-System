@@ -1,7 +1,7 @@
 # GPS-Tracking-System
 
 
-##For SoftWare Setup  
+## For SoftWare Setup  
 
 TO RUN THIS PROJECT YOU NEED TO :
 ##### First: You Need To Install visual studio community From here >>[link](https://visualstudio.microsoft.com/vs/community/) and you need to install .NET desktop development packages
