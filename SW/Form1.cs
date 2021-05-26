@@ -47,7 +47,7 @@ namespace map
 
 
             PointLatLng point = new PointLatLng(lat ,lon);
-            GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.red_dot);
+            GMapMarker marker = new GMarkerGoogle(point, GMarkerGoogleType.red_small);
             //1.creat ovelay
             GMapOverlay markers = new GMapOverlay("markers");
             //2.add all available markers to overlay

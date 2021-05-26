@@ -129,6 +129,7 @@ namespace map
             // 
             // btnAddPoint
             // 
+            this.btnAddPoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddPoint.Location = new System.Drawing.Point(631, 253);
             this.btnAddPoint.Name = "btnAddPoint";
             this.btnAddPoint.Size = new System.Drawing.Size(169, 44);
@@ -139,6 +140,7 @@ namespace map
             // 
             // btnClearlist
             // 
+            this.btnClearlist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClearlist.Location = new System.Drawing.Point(631, 390);
             this.btnClearlist.Name = "btnClearlist";
             this.btnClearlist.Size = new System.Drawing.Size(169, 48);
@@ -149,6 +151,7 @@ namespace map
             // 
             // btnGetRouteinfo
             // 
+            this.btnGetRouteinfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGetRouteinfo.Location = new System.Drawing.Point(631, 320);
             this.btnGetRouteinfo.Name = "btnGetRouteinfo";
             this.btnGetRouteinfo.Size = new System.Drawing.Size(169, 43);
