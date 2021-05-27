@@ -1,4 +1,5 @@
 
+ 
  /******************************************************************************
  *
  * Module: LCD
@@ -45,7 +46,7 @@
 	 	 GPIO_PORTA_DATA_R |=0X40;/*enable=1*/
 	 GPIO_PORTA_DATA_R &=0xbf;/*enable =0*/
 /*delay*/
-	 SysTick_Init();
+	 SysTick_Wait(270000);
  }
  void LCD_displayCharacter(uint8_t data)
  {
@@ -57,7 +58,7 @@
 	 	GPIO_PORTA_DATA_R |=0X40;/*enable=1*/
 	 GPIO_PORTA_DATA_R &=0xbf;/*enable =0*/
 	 /*delay*/
-SysTick_Init();
+SysTick_Wait(270000);
 }
  
  
