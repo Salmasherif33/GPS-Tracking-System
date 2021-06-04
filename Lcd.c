@@ -32,7 +32,7 @@
 			LCD_sendCommand(0X06);
 		SysTick_Wait(32000);
 		}
- 
+ // send command to LCD
  void LCD_sendCommand(uint8_t command)
  {    GPIO_PORTB_DATA_R &=0xFC;    /*Instruction Mode RS=0 PD0 /write data to LCD so RW=0 PD1/ENABLE=0 PD2 */
 	 /* out the highest 4 bits of the required command to the data bus D4 --> D7 */
@@ -47,6 +47,7 @@
 	 GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
   
  }
+ //send data as string
 void LCD_displayString(const char *Str)
 {
 	uint8_t i = 0;
@@ -54,5 +55,81 @@ void LCD_displayString(const char *Str)
 	{
 		LCD_displayCharacter(Str[i]);
 		i++;
-	}}
+	}
+}
+
+//send data as char
+void LCD_displayCharacter(uint8_t data)
+
+ {
+
+   GPIO_PORTD_DATA_R |=0xf1; /* Instruction Mode RS=1 /write data to LCD so RW=0/ENABLE=0 */
+
+	 GPIO_PORTD_DATA_R =(data>>4)&0xf0;/*write data*/
+
+	 GPIO_PORTD_DATA_R |=0X04;/*enable=1*/
+
+	 GPIO_PORTD_DATA_R &=0xFB;/*enable =0*/
+
+	 GPIO_PORTD_DATA_R =data&0xf0;/*write data*/
+
+	 GPIO_PORTD_DATA_R |=0X04;/*enable=1*/
+
+	 GPIO_PORTD_DATA_R &=0xFb;/*enable =0*/
+
+	 /*delay*/
+
+SysTick_Wait(270000);
+
+}
+// convert integer to string
+
+void LCD_intgerToString(int data)
+
+{
+
+    int i, rem, len = 0, n;
+
+   unsigned char numberArray[10];
+
+    n = data;
+
+    while (n != 0)
+
+    {
+
+        len++;
+
+        n /= 10;
+
+    }
+
+    for (i = 0; i < len; i++)
+
+    {
+
+        rem = data % 10;
+
+        data= data/ 10;
+
+        numberArray[len - (i + 1)] = rem + '0';
+
+    }
+
+    numberArray[len] = '\0';
+
+		LCD_displayString(numberArray);
+
+}
+// clear the lcd values to write new one
+
+ void LCD_Clear()
+
+{
+
+   LCD_sendCommand(clear_display ); // clear the screen
+
+   SysTick_Wait(32000);// for the problem of missing first charachter 
+
+}	
 
