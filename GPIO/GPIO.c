@@ -1,6 +1,5 @@
 
-
-#include "C:/Keil/EE319Kware/inc/tm4c123gh6pm.h"
+#include "tm4c123gh6pm.h"
 #include "GPIO.h"
 #define GPIO_PA10_M 0x03
 
