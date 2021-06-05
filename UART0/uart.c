@@ -4,14 +4,12 @@
 
 void UART0_Init()
 {
-//clock to port A
+//clock to uart0 at port A
+
 SYSCTL_RCGCUART_R |= 0x01;
-	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R0;
+//clock to port A
 
-	//clock to uart0 at port A
-	
-
-	
+SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R0;
 
 	
 	//clear enable (disable) uart0
