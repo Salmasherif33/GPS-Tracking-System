@@ -1,4 +1,4 @@
-#include "C:/Keil/EE319Kware/inc/tm4c123gh6pm.h"
+#include "tm4c123gh6pm.h"
 
 #include "UART.h"
 #include "GPIO.h"
