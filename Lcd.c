@@ -46,19 +46,23 @@ SysTick_Wait1us(40);//DELAY 40uS
  }
  // send command to LCD
  void LCD_sendCommand(uint8_t command)
- {    GPIO_PORTB_DATA_R &=0xFC;    /*Instruction Mode RS=0 PD0 /write data to LCD so RW=0 PD1/ENABLE=0 PD2 */
-	 /* out the highest 4 bits of the required command to the data bus D4 --> D7 */
-    GPIO_PORTB_DATA_R =( GPIO_PORTB_DATA_R& 0x0F) | (command & 0xF0);/*write data*/
-	 GPIO_PORTB_DATA_R |=0X04;/*enable=1 PD2*/
-	SysTick_Wait(32000);//delay 2ms
-	 GPIO_PORTB_DATA_R &=0xFB;/*enable =0 PD2*/
-	 /* out the lowest 4 bits of the required command to the data bus D4 --> D7 */
-	  GPIO_PORTB_DATA_R =( GPIO_PORTB_DATA_R & 0x0F) | ((command & 0x0F) << 4);/*write data*/
-	 	 GPIO_PORTB_DATA_R |=0X04;/*enable=1*/
-	   SysTick_Wait(32000);//delay2ms
-	 GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
-  
- }
+ {
+GPIO_PORTB_DATA_R &=0xFC;    /*Instruction Mode RS=0 /write data to LCD so RW=0 */
+/* out the highest 4 bits of the required command to the data bus D4 --> D7 */
+GPIO_PORTB_DATA_R = ((GPIO_PORTB_DATA_R & 0x0F) | (command & 0xF0));
+GPIO_PORTB_DATA_R |=0X04;/*enable=1*/
+SysTick_Wait1us(40);//delay 40us 
+GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
+/* out the lowest 4 bits of the required command to the data bus D4 --> D7 */
+ GPIO_PORTB_DATA_R = ((	GPIO_PORTB_DATA_R & 0x0F) | ((command<< 4)&0xF0));/*write data*/
+GPIO_PORTB_DATA_R |=0X04;/*enable=1*/
+ SysTick_Wait1us(40);
+GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
+if(command<4)
+SysTick_Wait1ms(2);//delay 2ms	 
+else 
+SysTick_Wait1us(40);//delay 40us
+}
  //send data as string
 void LCD_displayString(const char *Str)
 {
