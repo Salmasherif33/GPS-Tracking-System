@@ -13,7 +13,7 @@ int main()
 	int i = 0;
 	SysTick_Init(); //initiate systick for delays
 	LCD_init();  //initiate lcd 
-	sprintf(str,"%f",dis);   //convert float to string 
+	sprintf(str,"%f",dis);   //convert string to float 
 	LCD_sendCommand(1); /* clear display */
         LCD_sendCommand(0x80); /* LCD cursor location */
 		
