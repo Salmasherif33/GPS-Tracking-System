@@ -12,26 +12,38 @@
  /*******************************************************************************
  *                      Functions Definitions                                  *
  *******************************************************************************/
-/*4bit*//*rs bit PD0  rw bit PD1 enable bit PD2 AND DATA PC7 PC6 PC5 PC4*/
+/*4bitmode
+*Rs----->PB0
+*R/W---->PB1
+*Enable->PB2
+*DATA-->PB4-PB5-PB6-PB7
+*/
+/*
+*Function Description:used to intialize lcd and portB
+*/
  void LCD_init(void)
- {SysTick_Wait(800000);//wait 50ms 
-	 SYSCTL_RCGCGPIO_R |= 0x00000002; // activate  PORTB
-  while((SYSCTL_PRGPIO_R&=0x00000002) == 0){};
-	GPIO_PORTB_AMSEL_R &= 0x08;         /* Disable Analog on  */
-	GPIO_PORTB_PCTL_R   &= 0x0000F000;   /* Clear PMCx bits for PB7 PB6 PB5 PB4 to use it as GPIO pin */
-	GPIO_PORTB_DIR_R    |= 0xF7;         /* Configure PB7 PB6 PB5 PB4 as output pin */
-	GPIO_PORTB_AFSEL_R &= 0x08;         /* Disable alternative function on  PB7 PB6 PB5 PB4 */
-	GPIO_PORTB_DEN_R   |= 0xF7;         /* Enable Digital I/O on  PB7 PB6 PB5 PB4*/
-	GPIO_PORTB_DATA_R   &= 0x08;         /* Clear bit PB7 PB6 PB5 PB4 in Data regsiter to turn off the leds */
-		LCD_sendCommand(0x28); /* Select 4-bit Mode of LCD */
-		SysTick_Wait(16000);
-	LCD_sendCommand(0x0E);
-			SysTick_Wait(16000);//delay 1ms
-	LCD_sendCommand(0X01); /* clear whatever is written on display */
-			SysTick_Wait(32000);
-			LCD_sendCommand(0X06);
-		SysTick_Wait(32000);
-		}
+ {SYSCTL_RCGCGPIO_R |= 0x02; /* activate Port B */
+  while((SYSCTL_PRGPIO_R&=0x00000002) == 0){};/*waite to activate*/ 
+  GPIO_PORTB_AMSEL_R &= 0;         /* Disable Analog on PORTB*/
+  GPIO_PORTB_PCTL_R   &= 0x00000000;   /* Clear PMCx bits for  PORTB to use it as GPIO pin */
+  GPIO_PORTB_DIR_R    |= 0xFF;         /* Configure PORTB as output pin */
+  GPIO_PORTB_AFSEL_R &= 0x0;         /* Disable alternative function on PORTB */
+  GPIO_PORTB_DEN_R   |= 0xFF;         /* Enable Digital I/O onPORTB */
+  GPIO_PORTB_DATA_R   &= 0x0;         /* Clear data in PORT B */
+  SysTick_Wait1ms(20);//delay 20ms
+LCD_sendCommand(0X30);//wakeup
+SysTick_Wait1ms(5);//DELAY 5mS
+LCD_sendCommand(0X30);//wakeup
+SysTick_Wait1us(100);//DELAY 40uS
+LCD_sendCommand(0X30);//wakeup
+SysTick_Wait1us(40);//DELAY 40uS
+LCD_sendCommand(0x20); /* use 4-bit data mode */
+SysTick_Wait1us(40);//DELAY 40uS
+ LCD_sendCommand(0X28); /* Select 4-bit Mode of LCD */
+ LCD_sendCommand(0X06); /* clear whatever is written on display */
+ LCD_sendCommand(0X01); /* shift cursor right */
+ LCD_sendCommand(0X0F);  /* Enable Display and cursor blinking */
+ }
  // send command to LCD
  void LCD_sendCommand(uint8_t command)
  {    GPIO_PORTB_DATA_R &=0xFC;    /*Instruction Mode RS=0 PD0 /write data to LCD so RW=0 PD1/ENABLE=0 PD2 */
