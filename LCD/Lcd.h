@@ -17,9 +17,9 @@
  *                      Functions Prototypes                                   *
  *******************************************************************************/ 
  
-void LCD_init(void);
-void LCD_displayString(const char *Str);
-void LCD_sendCommand(uint8_t command);
-void LCD_displayCharacter(uint8_t data);
-void LCD_intgerToString(int data);
-void LCD_Clear();
+void LCD_init(void); /*function used to initialize lcd*/
+void LCD_displayString(const char *Str);/*function used to display string*/
+void LCD_sendCommand(uint8_t command);/*function used to send command to lcd*/
+void LCD_displayCharacter(uint8_t data);/*function used to diplay character*/
+void LCD_intgerToString(int data);/*function used to convert integer to string*/
+void LCD_Clear();/*function used to clear what is  wriiten on  lcd*/
