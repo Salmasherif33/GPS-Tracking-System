@@ -3,7 +3,7 @@
 
 
 
-double calc_dist_bet_2_points(double p1Lat, double p2Lat,double p1Lang,double p2Lang);
-void conv (char finalvalue[7],double dis);
+float calc_dist_bet_2_points(float p1Lat, float p2Lat,float p1Lang,float p2Lang);
+void conv (char finalvalue[7],float dis);
 
 #endif 
