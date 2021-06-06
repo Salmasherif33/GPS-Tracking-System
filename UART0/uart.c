@@ -42,10 +42,6 @@ SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R0;
 	
 	GPIO_PORTA_DEN_R |= GPIO_PA10_M;
 	
-	//analog disable
-	
-	//GPIO_PORTA_AMSEL_R &= ~0x03;	
-	
 }
 
 uint8_t UART0_Available(void){
