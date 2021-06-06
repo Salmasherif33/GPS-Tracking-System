@@ -24,7 +24,7 @@ return d;
 	 
 }
 
- void conv (char finalvalue[7],double dis)
+ void conv (char finalvalue[7],float dis)
 {
 				sprintf(finalvalue,"%f",dis);
 }
