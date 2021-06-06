@@ -75,28 +75,18 @@ void LCD_displayString(const char *Str)
 }
 
 //send data as char
-void LCD_displayCharacter(uint8_t data)
-
+ void LCD_displayCharacter(uint8_t data)
  {
-
-   GPIO_PORTD_DATA_R |=0xf1; /* Instruction Mode RS=1 /write data to LCD so RW=0/ENABLE=0 */
-
-	 GPIO_PORTD_DATA_R =(data>>4)&0xf0;/*write data*/
-
-	 GPIO_PORTD_DATA_R |=0X04;/*enable=1*/
-
-	 GPIO_PORTD_DATA_R &=0xFB;/*enable =0*/
-
-	 GPIO_PORTD_DATA_R =data&0xf0;/*write data*/
-
-	 GPIO_PORTD_DATA_R |=0X04;/*enable=1*/
-
-	 GPIO_PORTD_DATA_R &=0xFb;/*enable =0*/
-
-	 /*delay*/
-
-SysTick_Wait(270000);
-
+ GPIO_PORTB_DATA_R |=0x01; /* Instruction Mode RS=1 /write data to LCD so RW=0/ENABLE=0 */
+GPIO_PORTB_DATA_R = ( GPIO_PORTB_DATA_R & 0x0F) | (data& 0xF0);
+GPIO_PORTB_DATA_R |=0X04;/*enable=1*/
+SysTick_Wait1us(40); 	 
+GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
+GPIO_PORTB_DATA_R = ((	GPIO_PORTB_DATA_R & 0x0F) | ((data<< 4)&0xF0));/*write data*/
+GPIO_PORTB_DATA_R |=0X04;/*enable=1*/
+SysTick_Wait1us(40); 	
+GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
+SysTick_Wait1us(40); 	 
 }
 // convert integer to string
 
@@ -174,5 +164,20 @@ void LCD_goToRowColumn(uint8 row,uint8 col)
 	LCD_sendCommand(Address | SET_CURSOR_LOCATION); 
 }
 
+	void LCD_displayfloat(float data){
+		char str[7];
+		int i;
+		i=0;
+	sprintf(str,"%f",data);
+	LCD_sendCommand(1); /* clear display */
+LCD_sendCommand(0x80); /* LCD cursor location */
+		
+	while(str[i] != '\0')
+	{
+		LCD_displayCharacter(str[i]);
+		i++;
+	}
+		SysTick_Wait1ms(500);
+	}
 
 
