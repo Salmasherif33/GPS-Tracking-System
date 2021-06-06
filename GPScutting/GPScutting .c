@@ -1,10 +1,9 @@
-#include <stdio.h>
-#include <math.h>
+
 #include "GPScutting.h"
 
+#include "uart.h"
 
-
-void GPSModule(void)
+void GPSModule(char latitude [])
 {    int i;
     const char comma[2] = ",";
     char c0,GPSValues[100],parseValue[12][20],*token;
