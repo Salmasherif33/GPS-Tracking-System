@@ -1,8 +1,8 @@
-#ifndef __UART_H__
-#define __UART_H__
+#ifndef __uart_H__
+#define __uart_H__
 
 #include "stdint.h"
-#include "C:/Keil/EE319Kware/inc/tm4c123gh6pm.h"
+#include "tm4c123gh6pm.h"
 
 //proto types for the functions
 
@@ -14,4 +14,4 @@ void uart0_write(uint8_t data);
 
 
 
-#endif //__UART_H__
+#endif 
