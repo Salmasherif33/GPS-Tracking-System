@@ -66,16 +66,15 @@ SysTick_Wait1us(40);//delay 40us
  //send data as string
 void LCD_displayString(const char *Str)
 {
-	uint8_t i = 0;
-	while(Str[i] != '\0')
-	{
-		LCD_displayCharacter(Str[i]);
+  uint8_t i = 0;
+ while(Str[i] != '\0')
+{
+	LCD_displayCharacter(Str[i]);
 		i++;
-	}
-}
+ }} 
 
 //send data as char
- void LCD_displayCharacter(uint8_t data)
+ void LCD_displayCharacter(uint8_t data)/*function used to dislay characters*/
  {
  GPIO_PORTB_DATA_R |=0x01; /* Instruction Mode RS=1 /write data to LCD so RW=0/ENABLE=0 */
 GPIO_PORTB_DATA_R = ( GPIO_PORTB_DATA_R & 0x0F) | (data& 0xF0);
@@ -88,13 +87,12 @@ SysTick_Wait1us(40);
 GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
 SysTick_Wait1us(40); 	 
 }
-// convert integer to string
 
+// convert integer to string
 void LCD_intgerToString(int data)
 
 {
-
-    int i, rem, len = 0, n;
+int i, rem, len = 0, n;
 
    unsigned char numberArray[10];
 
@@ -113,18 +111,16 @@ void LCD_intgerToString(int data)
     for (i = 0; i < len; i++)
 
     {
-
         rem = data % 10;
 
         data= data/ 10;
 
-        numberArray[len - (i + 1)] = rem + '0';
-
-    }
+       numberArray[len - (i + 1)] = rem + '0';
+}
 
     numberArray[len] = '\0';
 
-		LCD_displayString(numberArray);
+LCD_displayString(numberArray);
 
 }
 // clear the lcd values to write new one
@@ -132,52 +128,26 @@ void LCD_intgerToString(int data)
  void LCD_Clear()
 
 {
-
-   LCD_sendCommand(clear_display ); // clear the screen
-
-   SysTick_Wait(32000);// for the problem of missing first charachter 
-
+LCD_sendCommand(1);//clear diplay
 }	
 
-void LCD_goToRowColumn(uint8 row,uint8 col)
-{
-	uint8 Address;
-	
-	/* first of all calculate the required address */
-	switch(row)
-	{
-		case 0:
-				Address=col;
-				break;
-		case 1:
-				Address=col+0x40;
-				break;
-		case 2:
-				Address=col+0x10;
-				break;
-		case 3:
-				Address=col+0x50;
-				break;
-	}					
-	/* to write to a specific address in the LCD 
-	 * we need to apply the corresponding command 0b10000000+Address */
-	LCD_sendCommand(Address | SET_CURSOR_LOCATION); 
-}
+/* Function discription :function used to convert float numbers to string and diplay on the lcd */				
 
-	void LCD_displayfloat(float data){
-		char str[7];
-		int i;
-		i=0;
-	sprintf(str,"%f",data);
-	LCD_sendCommand(1); /* clear display */
-LCD_sendCommand(0x80); /* LCD cursor location */
+
+void LCD_displayfloat(float data)
+{char str[7];
+ int i;
+ i=0;
+ sprintf(str,"%f",data);//used to convert flaot to string
+ LCD_sendCommand(1); /* clear display */
+ LCD_sendCommand(0x80); /* LCD cursor location */
 		
 	while(str[i] != '\0')
 	{
 		LCD_displayCharacter(str[i]);
 		i++;
 	}
-		SysTick_Wait1ms(500);
-	}
+		SysTick_Wait1ms(500);//delay 500ms
+}
 
 
