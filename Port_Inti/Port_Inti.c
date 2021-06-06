@@ -1,6 +1,4 @@
-#include "stdint.h"
-#include "tm4c123gh6pm.h"
-#define GPIO_PA10_M 0x03
+#include "Port_Inti.h"
 
 void Init_port_F(void)
 {
