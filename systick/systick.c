@@ -1,5 +1,4 @@
 #include "systick.h"
-#include "tm4c123gh6pm.h"
 void SysTick_Init(void){
 NVIC_ST_CTRL_R = 0; // 1) disable SysTick during setup
 NVIC_ST_RELOAD_R = 0x00FFFFFF; // 2) maximum reload value
