@@ -1,9 +1,8 @@
-#include "tm4c123gh6pm.h"
 
 #include "UART.h"
 #include "GPIO.h"
 #include "distance.h"
-#include "systick.h"
+#include "Lcd.h"
 
 //#include "systic.h"
 #define RED 0x02
@@ -17,7 +16,8 @@ volatile float lang[9]={2.29448,2.29452,2.29457,2.29464,2.29463,2.29474,2.29440,
 int main(){
 	volatile float dist=0;
 
-	
+	SysTick_Init();
+	LCD_init();
 	UART0_Init();
 	init();
 	while(1){
@@ -27,8 +27,11 @@ int main(){
 		for( i=0;i<8;i++)
 		{dist+=calc_dist_bet_2_points (lat[i], lat[i+1], lang[i], lang[i+1]);
 	if (dist >=100)
-	{LED_ON(RED);
-	break;}
+	{
+	LED_ON(RED);
+	LCD_displayfloat(dist);
+	break;
+	}
 
 	}	
 }
