@@ -5,21 +5,21 @@
 #include <stdio.h>
 
 
-double rad (double x){
+float rad (float x){
     return x * PI / 180;
 }
 
 
-double calc_dist_bet_2_points(double p1Lat, double p2Lat,double p1Lang,double p2Lang){
-	 double  R = 6378137;
-   double dLat = rad(p2Lat - p1Lat);
-   double dLong = rad(p2Lang - p1Lang);
-   double a = sin(dLat / 2) * sin(dLat / 2)+
+float calc_dist_bet_2_points(float p1Lat, float p2Lat,float p1Lang,float p2Lang){
+	 float  R = 6378137;
+   float dLat = rad(p2Lat - p1Lat);
+   float dLong = rad(p2Lang - p1Lang);
+   float a = sin(dLat / 2) * sin(dLat / 2)+
     cos(rad(p1Lat)) * cos(rad(p2Lat))*
     sin(dLong / 2) * sin(dLong / 2);
 
-    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-    double  d = R * c;
+    float c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    float  d = R * c;
 return d;
 	 
 }
