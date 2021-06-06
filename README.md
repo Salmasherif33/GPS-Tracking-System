@@ -14,7 +14,7 @@ Microprocessors Project for 3rd Year CSE Ain Shams University Students
   
 
 # GPS-Tracking-System
-
+this system reads coordinates from  NMEA GPS module NEO 6. It calculates the distance from a starting point until the distance reaches 100 m, then it turns on the LED of the TIVA C Board and displays the calculated distance on the LCD.
 
 ## For SoftWare Setup  
 
