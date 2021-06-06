@@ -76,7 +76,7 @@ void GPSModule(void)
 												for(i = 0; i <10; i++)
 													{
 												     	latitude[i] = parseValue[0][i];
-														uart0_write(parseValue[0][i]);
+													uart0_write(parseValue[0][i]);
 													}
 																	
 												uart0_write(' ');
@@ -92,31 +92,9 @@ void GPSModule(void)
 																	
 													uart0_write(' ');
 																	
-																
-										//				       latitude=atof(parseValue[0]);
-                                  //longitude=atof(parseValue[2]);
-																	
-																//	deg =(latitude/100);
-																	//actlat= deg + ( latitude - (double)(deg*100)) / 60.00;
-														//			lat_arr[count]=actlat;
-															//	strcpy(lat_arr[count], actlat);
-
-																	
-																	
-																	
-																//	deg =(longitude/100);
-																//	actlong= deg + ( longitude - (double)(deg*100) ) / 60.00;
-															   //long_arr[count]=actlong;
-																	//	strcpy(long_arr[count], actlong);
+															
                               }
                                 
-																
-																/*i=10000;
-                               while(i!=0)
-															 {
-																 i--;
-															 }*/
-                          
                             }
                              
                         }
