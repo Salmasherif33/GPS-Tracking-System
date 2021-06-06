@@ -69,28 +69,28 @@ void GPSModule(void)
                                 {
                                    
                                   
-												uart0_write('L');
-												uart0_write('A');
-												uart0_write('T');
+							uart0_write('L');
+							uart0_write('A');
+							uart0_write('T');
 																	
-												for(i = 0; i <10; i++)
-													{
-												     	latitude[i] = parseValue[0][i];
-													uart0_write(parseValue[0][i]);
-													}
+							for(i = 0; i <10; i++)
+							  {
+							     	latitude[i] = parseValue[0][i];
+								uart0_write(parseValue[0][i]);
+							  }
 																	
-												uart0_write(' ');
-												uart0_write('L');
-												uart0_write('O');
-												uart0_write('N');
+							uart0_write(' ');
+							uart0_write('L');
+							uart0_write('O');
+							uart0_write('N');
 																	
-												for(i = 0; i <10; i++)
-													{
+							for(i = 0; i <10; i++)
+						        	{
 															
-													uart0_write(parseValue[2][i]);
-													}
+								uart0_write(parseValue[2][i]);
+								}
 																	
-													uart0_write(' ');
+								uart0_write(' ');
 																	
 															
                               }
