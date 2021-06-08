@@ -5,8 +5,8 @@
 #include "Lcd.h"
 void SystemInit(){}
 
-char str[3];
-float dis=100;
+char str[3];//string*/
+float dis=100;/*float value will be converted to string to diplay it in the lcd */
 	
 int main()
 {
