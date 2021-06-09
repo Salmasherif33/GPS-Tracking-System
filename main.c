@@ -23,15 +23,22 @@ void SystemInit(){}
 //volatile float lat[9]={48.85837,48.85836,48.85836,48.85836,48.85839,48.85827,48.85821,48.85827,48.85832};
 //volatile float lang[9]={2.29448,2.29452,2.29457,2.29464,2.29463,2.29474,2.29440,2.29491,2.29490};
 int main(void){
+	volatile float dist=0;//variable to save distance after calling function that calculate distance between two points
 	int deg;
+	float lat_arr[1000];/*array to save latitude */
+	float lang_arr[1000];/*array to save langtude*/
+        int counter=0;/*variable used as acounter to increased every time  */
 	float lat;
 	float lang;
+	float lat1;
+	float lang1;
+	int x;
 	
-	SysTick_Init();
-	LCD_init();
-	UART0_Init();
-	UART2_Init();
-	init();
+	SysTick_Init();/*to intialize systick for delays*/
+	LCD_init();/*function to initalize lcd */
+	UART0_Init();/*function to initialize uart0*/
+	UART2_Init();/*function to initialize uart1*/
+	init();/*/*function to initialize led*/
 	
 	while(1){
 		//if there is a correct data comes from GPS
