@@ -129,6 +129,8 @@ LCD_displayString(numberArray);
 
 {
 LCD_sendCommand(1);//clear diplay
+LCD_sendCommand(0x80); /* LCD cursor location */
+SysTick_Wait1ms(500);
 }	
 
 /* Function discription :function used to convert float numbers to string and diplay on the lcd */				
