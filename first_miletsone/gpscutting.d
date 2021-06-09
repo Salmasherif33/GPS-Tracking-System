@@ -1,0 +1,11 @@
+.\gpscutting.o: GPScutting.c
+.\gpscutting.o: GPScutting.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\inttypes.h
+.\gpscutting.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+.\gpscutting.o: uart.h
+.\gpscutting.o: C:/Keil/EE319Kware/inc/tm4c123gh6pm.h

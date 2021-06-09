@@ -1,0 +1,16 @@
+.\main.o: main.c
+.\main.o: tm4c123gh6pm.h
+.\main.o: uart.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\main.o: C:/Keil/EE319Kware/inc/tm4c123gh6pm.h
+.\main.o: GPIO.h
+.\main.o: distance.h
+.\main.o: systick.h
+.\main.o: Lcd.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: GPScutting.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\math.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\inttypes.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
