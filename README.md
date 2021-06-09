@@ -14,7 +14,18 @@ Microprocessors Project for 3rd Year CSE Ain Shams University Students
   
 
 # GPS-Tracking-System
+
 this system reads coordinates from  NMEA GPS module NEO 6. It calculates the distance from a starting point until the distance reaches 100 m, then it turns on the LED of the TIVA C Board and displays the calculated distance on the LCD.
+
+## First MileStone
+- We Should implement a function that turns on the LED when the distance exceeded 100 meters
+- We Should implement the function that will display the output distance in the LCD and test it by writing on them a dummy data
+- We Should implement a function to calculate the total distance taken , configure UART to communicate with GPS
+- We Should write the function that parse the coordinates sent from the GPS in the form of ASCII
+- We should implement the software part that draws the trajectory  
+
+<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/first_mile_stone.jpeg" width="450" height="350" >  
+
 
 ## For SoftWare Setup  
 
