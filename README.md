@@ -3,14 +3,16 @@ Microprocessors Project for 3rd Year CSE Ain Shams University Students
 
 
 <div align="center">
-<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/tiva.jpg" width="300" height="380" >  
-    
-    
+<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/tiva.jpg" width="300" height="380" >   
+<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/conf.png" width="400" height="380" >  
+</div>  
+
+
+<div align="center">
 ![GitHub language count](https://img.shields.io/github/languages/count/Salmasherif33/GPS-Tracking-System?color=%2300&logo=GitHub)
 ![GitHub contributors](https://img.shields.io/github/contributors/Salmasherif33/GPS-Tracking-System?color=%2300&logo=GitHub)
-![GitHub top language](https://img.shields.io/github/languages/top/Salmasherif33/GPS-Tracking-System?color=%2300)
-
-</div>  
+![GitHub top language](https://img.shields.io/github/languages/top/Salmasherif33/GPS-Tracking-System?color=%2300)    
+</div>
   
 
 # GPS-Tracking-System
