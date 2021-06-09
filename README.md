@@ -45,3 +45,6 @@ TO RUN THIS PROJECT YOU NEED TO :
 [GMap.NET.Windows 2.0.2](https://www.nuget.org/packages/GMap.NET.Windows/2.0.2?_src=template)
 ##### Fourth:Copy this files in SW folder To you Directory project.
 ##### Fifth: Restart your Project.
+
+- Note:This program must be connected to the Internet.
+- Note:You have to add the file Directory that containing your data to line 22 and 23 in file Form1.cs .
