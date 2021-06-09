@@ -1,4 +1,4 @@
-using GMap.NET;
+﻿using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
@@ -19,19 +19,20 @@ namespace map
         private List<PointLatLng> _points;
         public Form1()
         {
+            string text = System.IO.File.ReadAllText(@"E:\3rd_computer2\Microprocessor\Project\examp.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"E:\3rd_computer2\Microprocessor\Project\examp.txt");
+
             InitializeComponent();
             _points = new List<PointLatLng>();
             Map.DragButton = MouseButtons.Left;
             Map.MapProvider = GMapProviders.GoogleMap;
-            _points.Add(new PointLatLng(33.03581, 31.20008));
-            _points.Add(new PointLatLng(33.05087, 31.23065));
-            _points.Add(new PointLatLng(33.04864, 31.22344));
-            _points.Add(new PointLatLng(33.04492, 31.22087));
-            _points.Add(new PointLatLng(33.04879, 31.21932));
-            for (int i = 0; i < _points.Count(); i++)
+            
+            for (int i = 0; i < 4; i=i+2)
             {
-                double lat = _points[i].Lat;
-                double lon = _points[i].Lng;
+                double lat = Convert.ToDouble(lines[i]);
+                double lon = Convert.ToDouble(lines[i+1]);
+                _points.Add(new PointLatLng(lat, lon));
+
                 Map.Position = new PointLatLng(lat, lon);
                 Map.MinZoom = 1;
                 Map.MaxZoom = 100;
