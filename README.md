@@ -3,7 +3,7 @@ Microprocessors Project for 3rd Year CSE Ain Shams University Students
 
 
 <div align="center">
-<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/tiva.jpg" width="300" height="450" >  
+<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/tiva.jpg" width="300" height="380" >  
     
     
 ![GitHub language count](https://img.shields.io/github/languages/count/Salmasherif33/GPS-Tracking-System?color=%2300&logo=GitHub)
@@ -24,8 +24,10 @@ this system reads coordinates from  NMEA GPS module NEO 6. It calculates the dis
 - We Should write the function that parse the coordinates sent from the GPS in the form of ASCII
 - We should implement the software part that draws the trajectory  
 
-<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/first_mile_stone.jpeg" width="450" height="350" >  
 
+<div align="center">
+<img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/first_mile_stone.jpeg" width="650" height="400" >  
+</div>
 
 ## For SoftWare Setup  
 
