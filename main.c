@@ -4,7 +4,7 @@
 #include "GPIO.h"
 #include "distance.h"
 #include "Lcd.h"
-#incude "systick.h"
+#include "systick.h"
 #include "GPScutting.h"
 #include <stdlib.h>
 #include <string.h>
