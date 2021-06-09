@@ -6,7 +6,8 @@ Microprocessors Project for 3rd Year CSE Ain Shams University Students
 <img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/tiva.jpg" width="300" height="380" >   
 <img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/conf.png" width="500" height="380" >  
 <br>
-  
+<br>
+<br>
   
 ![GitHub language count](https://img.shields.io/github/languages/count/Salmasherif33/GPS-Tracking-System?color=%2300&logo=GitHub)
 ![GitHub contributors](https://img.shields.io/github/contributors/Salmasherif33/GPS-Tracking-System?color=%2300&logo=GitHub)
@@ -31,6 +32,9 @@ this system reads coordinates from  NMEA GPS module NEO 6. It calculates the dis
 <div align="center">
 <img src="https://github.com/Salmasherif33/GPS-Tracking-System/blob/main/images/first_mile_stone.jpeg" width="650" height="400" >  
 </div>
+
+Note: Arduino is used as a 5v Supplier 
+The image show the testing of the LCD Display when the distance exceeded 100 and the Red LED is On when the distance exceeded 100
 
 ## For SoftWare Setup  
 
