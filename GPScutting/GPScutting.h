@@ -9,6 +9,6 @@
 #include <string.h>
 
 
-void GPSModule(char latitude []);
+bool GPSModule(char latitude[] , char langitude []);
 
 #endif
