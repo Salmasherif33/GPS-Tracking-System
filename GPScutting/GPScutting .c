@@ -13,44 +13,44 @@ bool GPSModule(char latitude[] , char langitude [])
    
      int index=0;
 		    
-    c0=UART0_Read();
+    c0=UART2_Read();
 
     //check $GPGLL 
     if(c0=='$')
     {
-        char c1 = UART0_Read();
+        char c1 = UART2_Read();
 
         if(c1=='G')
         {
-            char c2= UART0_Read();
+            char c2= UART2_Read();
 
             if(c2=='P')
             {
-                char c3= UART0_Read();
+                char c3= UART2_Read();
 
                 if(c3=='G')
                 {
-                    char c4= UART0_Read();
+                    char c4= UART2_Read();
 
                     if(c4=='L')
                     {
-                        char c5= UART0_Read();
+                        char c5= UART2_Read();
 
                         if(c5=='L')
                         {
                            
-                            char c6= UART0_Read();
+                            char c6= UART2_Read();
 
                             if(c6==',')
                             {
                               
-                                char c7= UART0_Read();
+                                char c7= UART2_Read();
 
                                 while(c7!='*')
                                 {
                                   GPSValues[index]=c7;
                                     
-                                    c7= UART0_Read();
+                                    c7= UART2_Read();
 
                                     index++;
                                 }
