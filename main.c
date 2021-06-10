@@ -37,7 +37,7 @@ int main(void){
 	float lang;
 	float lat1;
 	float lang1;
-	int x;
+	
 	
 	SysTick_Init();/*to intialize systick for delays*/
 	LCD_init();/*function to initalize lcd */
