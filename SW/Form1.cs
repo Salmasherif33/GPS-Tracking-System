@@ -1,4 +1,4 @@
-﻿using GMap.NET;
+using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
@@ -21,33 +21,37 @@ namespace map
         public Form1()
         {
             string text = System.IO.File.ReadAllText(@"C:\Users\dell\Documents\gps.txt");
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\dell\Documents\gps.txt");
-            List<double> array = new List<double>();
-            // int j = 0;
+            
+           List<double>array =new List<double>();
+           
             for (int i = 0; i < text.Length; i++)
             {
-
-                if (text[i] != ' ')
+                
+                if (text[i]!=' ')
                 {
-                    s += text[i];
+                    s+= text[i];
                 }
                 else
                 {
-                    array.Add(Convert.ToDouble(s));
-                    s = "";
+                  array.Add( Convert.ToDouble(s));
+                    s = "" ;
                 }
-                //j++;
+                
             }
-
+            
             InitializeComponent();
             _points = new List<PointLatLng>();
             Map.DragButton = MouseButtons.Left;
             Map.MapProvider = GMapProviders.GoogleMap;
-
-            for (int i = 0; i < array.Count; i = i + 2)
+            
+            for (int i = 0; i < array.Count; i=i+2)
             {
-                double lat = array[i];
-                double lon = array[i + 1];
+                double lat =array[i];
+                double lon =array[i+1];
+                int ilat = (int)lat /100;
+                int ilon = (int)lon/100;
+                lat = ilat + (lat - (float)(ilat * 100)) / 60.00;
+                lon = ilon + (lon - (float)(ilon * 100)) / 60.00;
                 _points.Add(new PointLatLng(lat, lon));
 
                 Map.Position = new PointLatLng(lat, lon);
