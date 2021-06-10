@@ -42,7 +42,8 @@ int main(void){
 	
 	while(1){
 		//if there is a correct data comes from GPS
-		if(GPSModule(latitude,langitude)){
+		if(GPSModule(latitude,langitude))
+		{
 			//convert from GPS NMEA coordinates, to Google Maps coordinates
 			lat = atof(latitude);
 			deg =(lat/100);
@@ -51,10 +52,24 @@ int main(void){
 			lang = atof(langitude);
 			deg =(lang/100);
 			lang = deg + ( lang - (float)(deg*100)) / 60.00;
-		}
-		
-
-	}	
+			lat_arr[counter]=lat;
+	                lang_arr[counter]=lang;
+			if(counter!=0)
+			{
+				 dist+=calc_dist_bet_2_points(lat_arr[counter-1],lat_arr[counter],lang_arr[counter-1],lang_arr[counter]);
+				
+				if(dist>=100)
+				{ 
+			            LED_ON(RED);/*turn on red led when distance ==100*/
+				    LCD_Clear();/*clear screen*/
+				    LCD_displayfloat(dist);/*display distance on lcd*/
+				    break;
+			        }
+		         }
+				counter++;/*increase counter by 1*/
+				SysTick_Wait1ms(1000);//delay 1 sec
+              }	
+	}
 
 	return 0;	
 }
