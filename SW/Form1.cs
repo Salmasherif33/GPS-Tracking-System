@@ -20,9 +20,9 @@ namespace map
         string s;
         public Form1()
         {
-            string text = System.IO.File.ReadAllText(@"C:\Users\dell\Documents\gps.txt");
-            
-           List<double>array =new List<double>();
+            string text = System.IO.File.ReadAllText(@"ADD YOUr Data File DIRECTORY HERE");//like this E:\3rd_computer2\Microprocessor\Project\gps.txt
+            string[] lines = System.IO.File.ReadAllLines(@"ADD YOUr Data File HERE");//like this E:\3rd_computer2\Microprocessor\Project\gps.txt
+            List<double>array =new List<double>();
            
             for (int i = 0; i < text.Length; i++)
             {
