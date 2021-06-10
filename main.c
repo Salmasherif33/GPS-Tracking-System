@@ -1,3 +1,8 @@
+/*
+ * main.c
+ *Gps_Tracking System the led will turn on after 100meter
+ *and the lcd will display the value then break  
+ */ 
 
 #include "uart.h"
 #include "uart2.h"
@@ -9,9 +14,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define RED 0x02
-#define BLUE 0x04
-#define GREEN 0x08
+#define RED 0x02 /* red led*/
+#define BLUE 0x04 /*blude red*/
+#define GREEN 0x08/*green led*/
 
 //store in theses arrays after cuuting the string of GPS module
 char latitude[11] = {'0','0','0','0','0','0','0','0','0','0','\0'};
@@ -52,8 +57,8 @@ int main(void){
 			lang = atof(langitude);
 			deg =(lang/100);
 			lang = deg + ( lang - (float)(deg*100)) / 60.00;
-			lat_arr[counter]=lat;
-	                lang_arr[counter]=lang;
+			lat_arr[counter]=lat;/*store in the array of altitude*/
+	                lang_arr[counter]=lang;/*store in the array of longitude*/
 			if(counter!=0)
 			{
 				 dist+=calc_dist_bet_2_points(lat_arr[counter-1],lat_arr[counter],lang_arr[counter-1],lang_arr[counter]);
@@ -63,7 +68,7 @@ int main(void){
 			            LED_ON(RED);/*turn on red led when distance ==100*/
 				    LCD_Clear();/*clear screen*/
 				    LCD_displayfloat(dist);/*display distance on lcd*/
-				    break;
+				    break;/*break from the while(1)after 100 meter*/
 			        }
 		         }
 				counter++;/*increase counter by 1*/
