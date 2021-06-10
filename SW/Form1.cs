@@ -17,20 +17,37 @@ namespace map
     public partial class Form1 : Form
     {
         private List<PointLatLng> _points;
+        string s;
         public Form1()
         {
-            string text = System.IO.File.ReadAllText(@"E:\3rd_computer2\Microprocessor\Project\examp.txt");
-            string[] lines = System.IO.File.ReadAllLines(@"E:\3rd_computer2\Microprocessor\Project\examp.txt");
+            string text = System.IO.File.ReadAllText(@"C:\Users\dell\Documents\gps.txt");
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\dell\Documents\gps.txt");
+            List<double> array = new List<double>();
+            // int j = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+
+                if (text[i] != ' ')
+                {
+                    s += text[i];
+                }
+                else
+                {
+                    array.Add(Convert.ToDouble(s));
+                    s = "";
+                }
+                //j++;
+            }
 
             InitializeComponent();
             _points = new List<PointLatLng>();
             Map.DragButton = MouseButtons.Left;
             Map.MapProvider = GMapProviders.GoogleMap;
-            
-            for (int i = 0; i < 4; i=i+2)
+
+            for (int i = 0; i < array.Count; i = i + 2)
             {
-                double lat = Convert.ToDouble(lines[i]);
-                double lon = Convert.ToDouble(lines[i+1]);
+                double lat = array[i];
+                double lon = array[i + 1];
                 _points.Add(new PointLatLng(lat, lon));
 
                 Map.Position = new PointLatLng(lat, lon);
