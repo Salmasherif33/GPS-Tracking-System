@@ -35,8 +35,7 @@ int main(void){
         int counter=0;/*variable used as acounter to increased every time  */
 	float lat;
 	float lang;
-	float lat1;
-	float lang1;
+	
 	
 	
 	SysTick_Init();/*to intialize systick for delays*/
