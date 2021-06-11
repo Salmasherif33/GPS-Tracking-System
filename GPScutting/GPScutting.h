@@ -7,6 +7,9 @@
 #include <stdlib.h>
 #include <inttypes.h>
 #include <string.h>
+#include "uart.h"
+#include "uart2.h"
+
 
 
 bool GPSModule(char latitude[] , char langitude []);
