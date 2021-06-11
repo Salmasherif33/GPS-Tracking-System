@@ -1,7 +1,5 @@
 
 #include "GPScutting.h"
-#include "uart.h"
-#include "uart2.h"
 
 
 //function recive GPS readings and extract langitude and latitude 
