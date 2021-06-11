@@ -88,41 +88,7 @@ GPIO_PORTB_DATA_R &=0xFB;/*enable =0*/
 SysTick_Wait1us(40); 	 
 }
 
-// convert integer to string
-void LCD_intgerToString(int data)
 
-{
-int i, rem, len = 0, n;
-
-   unsigned char numberArray[10];
-
-    n = data;
-
-    while (n != 0)
-
-    {
-
-        len++;
-
-        n /= 10;
-
-    }
-
-    for (i = 0; i < len; i++)
-
-    {
-        rem = data % 10;
-
-        data= data/ 10;
-
-       numberArray[len - (i + 1)] = rem + '0';
-}
-
-    numberArray[len] = '\0';
-
-LCD_displayString(numberArray);
-
-}
 // clear the lcd values to write new one
 
  void LCD_Clear()
