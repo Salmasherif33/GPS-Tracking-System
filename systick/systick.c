@@ -7,7 +7,7 @@ NVIC_ST_RELOAD_R = 0x00FFFFFF; // 2) maximum reload value
 NVIC_ST_CURRENT_R = 0; // 3) any write to CURRENT clears it
 NVIC_ST_CTRL_R = 0x00000005; // 4) enable SysTick with core clock
 }
-void SysTick_Wait(){
+void SysTick_Wait(void){
 NVIC_ST_RELOAD_R = 16000-1; // number of counts
 NVIC_ST_CURRENT_R = 0; // any value written to CURRENT clears
 while((NVIC_ST_CTRL_R&0x00010000)==0){ // wait for flag
@@ -15,7 +15,7 @@ while((NVIC_ST_CTRL_R&0x00010000)==0){ // wait for flag
 
 // wait 1 micro sec and used in lcd
 
-void SysTick_Waitu(){
+void SysTick_Waitu(void){
 NVIC_ST_RELOAD_R = 16-1; // number of counts
 NVIC_ST_CURRENT_R = 0; // any value written to CURRENT clears
 while((NVIC_ST_CTRL_R&0x00010000)==0){ // wait for flag
