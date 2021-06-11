@@ -43,7 +43,7 @@ int main(void){
 	LCD_init();/*function to initalize lcd */
 	UART0_Init();/*function to initialize uart0*/
 	UART2_Init();/*function to initialize uart1*/
-	init();/*/*function to initialize led*/
+	init();/*function to initialize led*/
 	
 	while(1){
 		//if there is a correct data comes from GPS
